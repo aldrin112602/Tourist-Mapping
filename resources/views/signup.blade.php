@@ -74,11 +74,11 @@
     </nav>
 
     <div class="bg-image">
-        <div class="container text-center content">
+        <div class="container text-center content text-white" id="main">
             <h1 class="display-4">Travel with us</h1>
-            <p>It sounds like you're inviting people to visit a small barangay named Malpalon!
+            <p class="fs-3 pr-5">It sounds like you're inviting people to visit a small barangay named Malpalon!
                 Could you share more about it?</p>
-            <p>I'd love to help you craft a travel message or details to promote it.</p>
+            <p class="fs-3">I'd love to help you craft a travel message or details to promote it.</p>
             <button class="btn btn-success btn-lg">Sign up</button>
         </div>
 
