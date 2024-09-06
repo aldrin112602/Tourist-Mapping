@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+require_once __DIR__ . '/root/admin_routes.php';
+require_once __DIR__ . '/root/public_routes.php';
+require_once __DIR__ . '/root/tourist_routes.php';
