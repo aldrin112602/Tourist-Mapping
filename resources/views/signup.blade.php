@@ -6,7 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Custom Styles */
+        .bg-image {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDhLj7aMekqp1K3SJ1_QrlmDAcAJqyWnoMkQ&s');
+            /* Replace with the image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+     
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .content {
+            text-align: center;
+        }
+
+        .signup-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .signup-form input {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,55 +73,36 @@
         </div>
     </nav>
 
-    <div class="d-md-flex d-block align-items-center justify-content-around w-full">
-        <form action="{{ route('tourist.handleLogin') }}" class="w-full" method="post">
-            @csrf <!-- Add CSRF token for security -->
+    <div class="bg-image">
+        <div class="container text-center content">
+            <h1 class="display-4">Travel with us</h1>
+            <p>It sounds like you're inviting people to visit a small barangay named Malpalon!
+                Could you share more about it?</p>
+            <p>I'd love to help you craft a travel message or details to promote it.</p>
+            <button class="btn btn-success btn-lg">Sign up</button>
+        </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOKT_nulU976YCS6mzgDbWCi6zp09ZC65rA&s" alt="" class="mx-auto">
-
-            <!-- Email Input -->
-            <div class="my-3 w-full">
-                <input
-                    type="email"
-                    class="form-control @error('email') is-invalid @enderror"
-                    placeholder="Enter Email"
-                    name="email"
-                    value="{{ old('email') }}">
-                <!-- Error Message for Email -->
-                @error('email')
-                <div class="text-danger mt-1">{{ $message }}</div>
-                @enderror
+        <!-- Signup Form -->
+        <div class="position-absolute" style="top: 50%; right: 50px; transform: translateY(-50%);">
+            <div class="signup-form">
+                <h4>Sign up for free</h4>
+                <p>Full access to any of our products</p>
+                <form action="/signup" method="POST">
+                    @csrf
+                    <input type="email" class="form-control" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary btn-block">Continue</button>
+                    <div class="text-center mt-3">
+                        <small>OR</small>
+                    </div>
+                    <button class="btn btn-light btn-block">
+                        <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google"> Continue with Google
+                    </button>
+                </form>
             </div>
-
-            <!-- Password Input -->
-            <div class="mb-2 w-full">
-                <input
-                    type="password"
-                    class="form-control @error('password') is-invalid @enderror"
-                    placeholder="Enter Password"
-                    name="password">
-                <!-- Error Message for Password -->
-                @error('password')
-                <div class="text-danger mt-1">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Forgot password link -->
-            <p class="text-end">
-                <a href="">Forgot password?</a>
-            </p>
-
-            <!-- Submit Button -->
-            <p class="text-center">
-                <button type="submit" class="btn btn-sm btn-border-1 btn-dark">Log in</button>
-            </p>
-        </form>
-
-
-        <div class="d-none d-md-block col-6[">
-            <img src="https://media.karousell.com/media/photos/products/2024/6/28/lot_for_sale_in_calintaan_occi_1719555349_dac2b451_progressive" alt="" class="img-fluid" style="object-fit: cover;">
         </div>
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
